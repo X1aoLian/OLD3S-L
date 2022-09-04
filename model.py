@@ -627,8 +627,8 @@ class OLD3S_Shallow:
 
         optimizer_classifier_1_FES = torch.optim.Adam(net_model1.parameters(), self.lr)
         optimizer_classifier_2_FES = torch.optim.Adam(net_model2.parameters(), self.lr)
-        optimizer_autoencoder_2_FES = torch.optim.Adam(self.autoencoder_2.parameters(), self.lr)
-        data_2 = self.x_S2[:self.B]
+        optimizer_autoencoder_2_FES = torch.optim.Adam(self.autoencoder_3.parameters(), self.lr)
+        data_2 = self.x_S3[:self.B]
         label_2 = self.y_S1[:self.B]
 
         self.a_1 = 0.2
@@ -647,7 +647,7 @@ class OLD3S_Shallow:
                 y1 = torch.Tensor([0, 1]).unsqueeze(0).float().to(self.device)
 
 
-            encoded_2, decoded_2 = self.autoencoder_2(x)
+            encoded_2, decoded_2 = self.autoencoder_3(x)
             optimizer_autoencoder_2_FES.zero_grad()
             y_hat_2, loss_classifier_2 = self.HB_Fit(net_model2,
                                                      encoded_2, y1, optimizer_classifier_2_FES)
