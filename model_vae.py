@@ -8,7 +8,7 @@ from autoencoder import *
 from loaddatasets import *
 from mlp import MLP
 from vae import *
-from test import DCVAE
+
 
 def normal(t):
     mean, std, var = torch.mean(t), torch.std(t), torch.var(t)
